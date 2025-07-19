@@ -1,0 +1,732 @@
+:root {
+    --accent-color: #0071e3;
+    --apple-bg: #f5f5f7;
+    --apple-card: #fff;
+    --apple-shadow: 0 8px 32px rgba(60,60,67,0.08);
+    --apple-text: #1d1d1f;
+    --apple-meta: #6e6e73;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--apple-bg);
+    color: var(--apple-text);
+    line-height: 1.6;
+    display: flex;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    background: var(--apple-bg);
+    box-shadow: 2px 0 16px rgba(60,60,67,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+}
+
+.sidebar-content {
+    width: 100%;
+    padding: 40px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar-name {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #3b82f6;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.sidebar nav ul li {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.sidebar nav ul li a {
+    color: var(--apple-text);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 20px;
+    border-radius: 6px;
+    transition: background 0.3s, color 0.3s, font-size 0.3s, transform 0.3s;
+    display: block;
+}
+
+.sidebar nav ul li a:hover {
+    background: #e5e7eb;
+    color: #2563eb;
+}
+
+main {
+    margin-left: 240px;
+    max-width: 1100px;
+    width: 100%;
+    padding: 80px 40px 80px 40px;
+    background: var(--apple-bg);
+    min-height: 100vh;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+    color: var(--apple-text);
+    font-size: 1.18rem;
+    letter-spacing: 0.01em;
+}
+
+/* Apple Store-like Hero Section */
+.hero-section {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    animation: heroFadeIn 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes heroFadeIn {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.hero-section h2 {
+    font-size: 1.2rem;
+    color: #6b7280;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.resume-btn {
+    display: inline-block;
+    background: var(--accent-color);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    padding: 12px 28px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.resume-btn:hover {
+    background: #005bb5;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(0,113,227,0.12);
+    transform: scale(1.04);
+}
+
+/* Card and Button Hover */
+.exp-card, .resume-btn {
+    transition: box-shadow 0.3s cubic-bezier(0.4,0,0.2,1), transform 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.exp-card:hover, .resume-btn:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    transform: scale(1.03);
+}
+
+.section-summary {
+    color: #6b7280;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.exp-card {
+    background: #f9fafb;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    border-left: 4px solid #3b82f6;
+    transition: box-shadow 0.2s;
+}
+.exp-card:hover {
+    box-shadow: 0 4px 16px rgba(59,130,246,0.08);
+}
+
+.exp-card h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    color: #1e293b;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.exp-date {
+    font-size: 0.95em;
+    color: #6b7280;
+    font-weight: 400;
+    margin-left: 8px;
+}
+
+.exp-card ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.exp-card li {
+    margin-bottom: 6px;
+    color: #374151;
+    font-size: 0.98rem;
+}
+
+section {
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 32px;
+    margin-bottom: 48px;
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #111827;
+}
+
+p, li {
+    color: #374151;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+a {
+    color: #3b82f6;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+.slide-in-left {
+    transform: translateX(-30px);
+    opacity: 0;
+    animation: slideInLeft 0.7s forwards;
+}
+@keyframes slideInLeft {
+    to { transform: translateX(0); opacity: 1; }
+}
+.slide-in-right {
+    transform: translateX(30px);
+    opacity: 0;
+    animation: slideInRight 0.7s forwards;
+}
+@keyframes slideInRight {
+    to { transform: translateX(0); opacity: 1; }
+}
+.scale-up {
+    transform: scale(0.95);
+    opacity: 0;
+    animation: scaleUp 0.7s forwards;
+}
+@keyframes scaleUp {
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Back to Top Button */
+#back-to-top {
+    background: var(--accent-color, #3b82f6);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#back-to-top:hover {
+    background: #2563eb;
+}
+
+/* Scroll Progress Bar */
+#scroll-progress {
+    background: var(--accent-color, #3b82f6);
+    height: 4px;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3000;
+    transition: width 0.2s;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background: #161617;
+    color: #f5f5f7;
+}
+body.dark-mode main {
+    background: #161617;
+    color: #f5f5f7;
+}
+body.dark-mode .sidebar {
+    background: #161617;
+    color: #f5f5f7;
+}
+body.dark-mode nav ul li a {
+    color: #f5f5f7;
+}
+body.dark-mode nav ul li a.active, body.dark-mode .sidebar nav ul li a.active {
+    background: var(--accent-color);
+    color: #fff !important;
+}
+body.dark-mode .exp-card {
+    background: #26263a;
+    color: #f4f4f5;
+}
+body.dark-mode #back-to-top {
+    background: #444;
+    color: #fff;
+}
+
+/* Accent Color Picker */
+#accent-color-picker {
+    border-radius: 50%;
+    border: 2px solid #e5e7eb;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    padding: 0;
+}
+#accent-color-picker::-webkit-color-swatch-wrapper {
+    padding: 0;
+    border-radius: 50%;
+}
+#accent-color-picker::-webkit-color-swatch {
+    border-radius: 50%;
+    border: none;
+}
+
+/* Ensure fade-in starts hidden */
+section h3, section h4, section p, section ul, section li, section a, .exp-card {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Minimal, Clean UI */
+main {
+    max-width: 900px;
+    padding: 60px 40px 60px 40px;
+    font-size: 1.12rem;
+    letter-spacing: 0.01em;
+}
+section {
+    margin-bottom: 72px;
+    padding-bottom: 40px;
+}
+h1, h2, h3, h4 {
+    letter-spacing: -0.01em;
+}
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+/* Sticky Sidebar with Blur */
+.sidebar {
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(8px);
+    box-shadow: 2px 0 16px rgba(0,0,0,0.06);
+    transition: background 1.2s cubic-bezier(0.4,0,0.2,1), box-shadow 0.7s;
+}
+
+/* Smoother background transitions */
+.sidebar, main {
+    transition: background 1.2s cubic-bezier(0.4,0,0.2,1), box-shadow 0.7s;
+}
+
+/* Responsive for Apple-like whitespace */
+@media (max-width: 900px) {
+    .sidebar {
+        width: 60px;
+    }
+    .sidebar-content {
+        padding: 20px 0 0 0;
+    }
+    .sidebar-name {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+    .sidebar nav ul li a {
+        padding: 8px 8px;
+        font-size: 0.9rem;
+    }
+    main {
+        margin-left: 60px;
+        padding: 32px 8px 32px 8px;
+    }
+    .hero-section {
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        flex-direction: column;
+    }
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .sidebar-content {
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 0;
+    }
+    .sidebar nav ul {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+    }
+    .sidebar nav ul li {
+        margin: 0 10px;
+    }
+    main {
+        margin-left: 0;
+        max-width: 100vw;
+        padding: 16px 4vw;
+    }
+}
+
+#github-projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+    margin-top: 24px;
+}
+.github-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    padding: 24px 20px 18px 20px;
+    transition: box-shadow 0.3s cubic-bezier(0.4,0,0.2,1), transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    display: flex;
+    flex-direction: column;
+    min-height: 140px;
+}
+.github-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    transform: scale(1.04);
+}
+.github-card h4 {
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.github-card p {
+    color: #374151;
+    font-size: 0.98rem;
+    margin-bottom: 12px;
+}
+.github-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.95rem;
+    color: #6b7280;
+    margin-top: auto;
+}
+.github-placeholder {
+    color: #6b7280;
+    font-size: 1rem;
+    text-align: center;
+    margin: 32px 0;
+}
+
+.github-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 24px 0 32px 0;
+    display: flex;
+    align-items: center;
+    background: none;
+}
+.github-carousel {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 8px 0 8px 0;
+    width: 100%;
+    scrollbar-width: none;
+}
+.github-carousel::-webkit-scrollbar {
+    display: none;
+}
+.github-card {
+    min-width: 340px;
+    max-width: 360px;
+    min-height: 320px;
+    background: #fff;
+    border-radius: 28px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+    padding: 32px 28px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transition: box-shadow 0.3s cubic-bezier(0.4,0,0.2,1), transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    position: relative;
+    margin: 0;
+}
+.github-card:hover {
+    box-shadow: 0 8px 40px rgba(0,0,0,0.13);
+    transform: scale(1.04);
+}
+.github-card h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    letter-spacing: -0.01em;
+}
+.github-card p {
+    color: #374151;
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+    min-height: 48px;
+}
+.github-meta {
+    display: flex;
+    gap: 18px;
+    font-size: 1rem;
+    color: #6b7280;
+    margin-top: auto;
+    align-items: center;
+}
+.github-meta svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+}
+.carousel-arrow {
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+    color: #3b82f6;
+    cursor: pointer;
+    margin: 0 8px;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    z-index: 2;
+}
+.carousel-arrow:hover {
+    background: #3b82f6;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(59,130,246,0.12);
+}
+.carousel-arrow:active {
+    background: #2563eb;
+}
+
+@media (max-width: 700px) {
+    .github-card {
+        min-width: 90vw;
+        max-width: 95vw;
+        padding: 20px 10px 18px 10px;
+    }
+    .github-carousel-wrapper {
+        padding: 8px 0 16px 0;
+    }
+}
+
+body.dark-mode .github-card {
+    background: #23232a;
+    color: #f4f4f5;
+}
+body.dark-mode .github-card p,
+body.dark-mode .github-meta {
+    color: #cbd5e1;
+}
+body.dark-mode .carousel-arrow {
+    background: #23232a;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+body.dark-mode .carousel-arrow:hover {
+    background: #3b82f6;
+    color: #fff;
+}
+
+/* Apple Store Card Style */
+.github-card, .exp-card {
+    background: var(--apple-card);
+    border-radius: 28px;
+    box-shadow: var(--apple-shadow);
+    padding: 36px 32px 28px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transition: box-shadow 0.3s cubic-bezier(0.4,0,0.2,1), transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    margin: 0;
+}
+.github-card:hover, .exp-card:hover {
+    box-shadow: 0 16px 48px rgba(60,60,67,0.13);
+    transform: scale(1.04);
+}
+.github-card h4, .exp-card h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    letter-spacing: -0.01em;
+}
+.github-card p, .exp-card li, .exp-card p {
+    color: var(--apple-text);
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+}
+.github-meta, .exp-date {
+    color: var(--apple-meta);
+    font-size: 1rem;
+    margin-top: auto;
+    align-items: center;
+}
+.resume-btn, .carousel-arrow {
+    background: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 12px 28px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.resume-btn:hover, .carousel-arrow:hover {
+    background: #005bb5;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(0,113,227,0.12);
+    transform: scale(1.04);
+}
+.carousel-arrow:active {
+    background: #003e7e;
+}
+
+.github-meta svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+}
+
+#github-projects h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+#github-projects .github-placeholder {
+    color: var(--apple-meta);
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 32px 0;
+}
+
+#github-projects .github-carousel {
+    background: none;
+}
+
+@media (max-width: 700px) {
+    .github-card, .exp-card {
+        min-width: 90vw;
+        max-width: 95vw;
+        padding: 20px 10px 18px 10px;
+    }
+    main {
+        padding: 32px 8px 32px 8px;
+    }
+}
+
+body.dark-mode {
+    background: #161617;
+    color: #f5f5f7;
+}
+body.dark-mode main, body.dark-mode .sidebar {
+    background: #161617;
+    color: #f5f5f7;
+}
+body.dark-mode .github-card, body.dark-mode .exp-card {
+    background: #23232a;
+    color: #f5f5f7;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+body.dark-mode nav ul li a, body.dark-mode .sidebar nav ul li a {
+    color: #f5f5f7;
+}
+body.dark-mode nav ul li a.active, body.dark-mode .sidebar nav ul li a.active {
+    background: var(--accent-color);
+    color: #fff !important;
+}
+body.dark-mode .github-meta, body.dark-mode .exp-date {
+    color: #b0b0b3;
+}
+body.dark-mode .resume-btn, body.dark-mode .carousel-arrow {
+    background: var(--accent-color);
+    color: #fff;
+}
+body.dark-mode .resume-btn:hover, body.dark-mode .carousel-arrow:hover {
+    background: #005bb5;
+}
+body.dark-mode .carousel-arrow:active {
+    background: #003e7e;
+}
